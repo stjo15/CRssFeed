@@ -1,0 +1,6 @@
+/* Style for RSS icon when using Font Awesome */
+
+.rss {
+    color: #FF9900;
+    text-shadow: 1px 3px 1px #aaa;
+}
