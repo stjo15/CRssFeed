@@ -1,5 +1,5 @@
 {
-    "name": "stjo15/CRssFeed",    
+    "name": "stjo15/c-rss-feed",    
     "type": "library",
     "description": "An RSS module to add RSS functionality to MVC frameworks. Developed for Anax-MVC",
     "keywords": ["module", "framework", "mvc", "micro", "rss", "feed"],
