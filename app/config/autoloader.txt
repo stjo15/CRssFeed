@@ -1,0 +1,3 @@
+Add this to $loader:
+
+->addNameSpace('Mos', ANAX_INSTALL_PATH . 'src')

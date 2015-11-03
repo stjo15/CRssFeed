@@ -55,9 +55,9 @@ class RssFeedController implements \Anax\DI\IInjectionAware
         $this->views->add('rss/list-all', [
             'feeds' => $all,
             'title' => "Visa alla RSS-flöden",
-        ], 'main');
+        ]);
         
-        $this->views->add('rss/rss-sidebar', [], 'rsidebar');
+        //$this->views->add('rss/rss-sidebar', [], 'rsidebar');
      }
      
     /**

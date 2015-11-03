@@ -1,0 +1,6 @@
+$this->setShared('db', function() {
+            $db = new \Mos\Database\CDatabaseBasic();
+            $db->setOptions(require ANAX_APP_PATH . 'config/config_mysql.php');
+            $db->connect();
+            return $db;
+        });
