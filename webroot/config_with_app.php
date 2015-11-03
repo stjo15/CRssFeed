@@ -6,7 +6,7 @@
 
 
 $di->set('RssController', function() use ($di) {
-    $controller = new \Anax\Rss\RssFeedController();
+    $controller = new \CRssFeed\Rss\RssFeedController();
     $controller->setDI($di);
     return $controller;
 });
