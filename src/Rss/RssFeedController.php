@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Rss;
+namespace CRssFeed\Rss;
  
 /**
  * A controller for RSS events.
@@ -17,7 +17,7 @@ class RssFeedController implements \Anax\DI\IInjectionAware
     */
     public function initialize()
     {
-        $this->rss = new \Anax\Rss\RssFeed();
+        $this->rss = new \CRssFeed\Rss\RssFeed();
         $this->rss->setDI($this->di);
     }
     
@@ -31,7 +31,7 @@ class RssFeedController implements \Anax\DI\IInjectionAware
     */
     public function setupAction($pagekey=null) {
 
-        $form = new \Anax\HTMLForm\CFormRssAdd($pagekey);
+        $form = new \CRssFeed\HTMLForm\CFormRssAdd($pagekey);
         $form->setDI($this->di);
         $status = $form->check();
         
@@ -123,7 +123,7 @@ class RssFeedController implements \Anax\DI\IInjectionAware
         $image_width = $rss->getProperties()['image_width'];
         $image_height = $rss->getProperties()['image_height'];
     
-        $form = new \Anax\HTMLForm\CFormRssUpdate($id, $pagekey, $title, $description, $language, $image_title, $image_url, $image_link, $image_width, $image_height);
+        $form = new \CRssFeed\HTMLForm\CFormRssUpdate($id, $pagekey, $title, $description, $language, $image_title, $image_url, $image_link, $image_width, $image_height);
         $form->setDI($this->di);
         $status = $form->check();
     
@@ -141,7 +141,7 @@ class RssFeedController implements \Anax\DI\IInjectionAware
     
     $xmlfile = ANAX_APP_PATH . 'rss/' . $this->pagekey . "_rss.xml";
          if(file_exists($xmlfile)) {
-             $rss = new \Anax\Rss\RssFeed();
+             $rss = new \CRssFeed\Rss\RssFeed();
              $rss->setDI($this->di);
              $xml = $rss->getFeed($this->pagekey);
              $fh = fopen($xmlfile, 'w') or die("can't open file");

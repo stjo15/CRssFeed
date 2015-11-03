@@ -1,6 +1,6 @@
 <?php
 
-namespace Mos\HTMLForm;
+namespace CRssFeed\HTMLForm;
 
 /**
  * Form element

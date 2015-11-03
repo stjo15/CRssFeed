@@ -1,6 +1,6 @@
 <?php
 
-namespace Mos\HTMLForm;
+namespace CRssFeed\HTMLForm;
 
 /**
  * A utility class to easy creating and handling of forms

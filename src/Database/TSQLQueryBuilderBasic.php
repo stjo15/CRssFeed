@@ -1,6 +1,6 @@
 <?php
 
-namespace Mos\Database;
+namespace CRssFeed\Database;
 
 /**
  * Database wrapper, provides a database API for the framework but hides details of implementation.

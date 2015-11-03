@@ -1,12 +1,12 @@
 <?php
 
-namespace Anax\Rss;
+namespace CRssFeed\Rss;
  
 /**
  * Model for Rss.
  *
  */
-class RssFeed extends \Anax\MVC\CDatabaseModel
+class RssFeed extends \CRssFeed\MVC\CDatabaseModel
 {
     
     /**

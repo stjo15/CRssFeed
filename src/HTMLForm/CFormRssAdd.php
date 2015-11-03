@@ -1,12 +1,12 @@
 <?php
 
-namespace Anax\HTMLForm;
+namespace CRssFeed\HTMLForm;
 
 /**
  * Anax base class for wrapping sessions.
  *
  */
-class CFormRssAdd extends \Mos\HTMLForm\CForm
+class CFormRssAdd extends \CRssFeed\HTMLForm\CForm
 {
     use \Anax\DI\TInjectionaware,
         \Anax\MVC\TRedirectHelpers;
@@ -104,7 +104,7 @@ class CFormRssAdd extends \Mos\HTMLForm\CForm
      */
     public function callbackSubmit()
     {
-        $this->rss = new \Anax\Rss\RssFeed();
+        $this->rss = new \CRssFeed\Rss\RssFeed();
         $this->rss->setDI($this->di);
         $saved = $this->rss->save(array('pagekey' => $this->Value('pagekey'), 'title' => $this->Value('title'), 'description' => $this->Value('description'), 'language' => $this->Value('language'), 'image_title' => $this->Value('image_title'), 'image_url' => $this->Value('image_url'), 'image_link' => $this->Value('image_link'), 'image_width' => $this->Value('image_width'), 'image_height' => $this->Value('image_height')));
     

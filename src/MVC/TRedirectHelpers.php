@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\MVC;
+namespace CRssFeed\MVC;
 
 /**
  * Helpers for redirecting to other pages and controllers.

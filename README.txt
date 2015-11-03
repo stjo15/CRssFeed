@@ -20,7 +20,8 @@ Setting up and using the CRssFeed module with the Anax MVC framework
 
 9. Use the contents of webroot/examplecontent.php to customize your RSS feed.
 
-10. Your RSS content database should contain columns for pagekey, id, title and description. However, you can and should choose your own column names in the class RssFeed,
+10. Your RSS content database should contain columns for pagekey, id, title and description. 
+However, you can and should choose your own column names in the class RssFeed,
 in the method getItems(). 
 
 11. There are also functions to edit, delete and list RSS feeds. You should really check out the contents and customize it to your needs.

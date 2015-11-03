@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\MVC;
+namespace CRssFeed\MVC;
  
 /**
  * Model for Users.
