@@ -5,7 +5,7 @@ php:
     - hhvm
     
 install:
-    - composer install https://packagist.org/packages/anax/mvc
+    - composer require https://packagist.org/packages/anax/mvc
     - cp -r app/view vendor/anax/mvc/app/
     - cp -r webroot/config_with_app.php vendor/anax/mvc/webroot/config_with_app.php
 
