@@ -5,7 +5,6 @@ php:
     - hhvm
     
 install:
-    - install composer
     - cp -r app/view vendor/anax/mvc/app/
     - cp -r webroot/config_with_app.php vendor/anax/mvc/webroot/config_with_app.php
 
