@@ -24,17 +24,17 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        $di    = new \Anax\DI\CDIFactoryDefault();
-        
         self::$feed = new RssFeed();
         self::$feed->setDI($di);
         
-        $this->db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
-        $this->db->connect();
+        $db    = new \CRssFeed\Database\CDatabaseBasic();
+        
+        $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
+        $db->connect();
         // Create 'rssfeed' table
-        $this->db->dropTableIfExists("rssfeed");
-        $this->db->execute();
-        $this->db->createTable(
+        $db->dropTableIfExists("rssfeed");
+        $db->execute();
+        $db->createTable(
             'rssfeed',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -49,11 +49,11 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'image_height'  => ['int(11)'],
             ]
         );
-        $this->db->execute();
+        $db->execute();
         // Create 'itemstest' table
-        $this->db->dropTableIfExists("itemstest");
-        $this->db->execute();
-        $this->db->createTable(
+        $db->dropTableIfExists("itemstest");
+        $db->execute();
+        $db->createTable(
             'itemstest',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -63,25 +63,25 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'timestamp'  => ['datetime'],
             ]
         );
-        $this->db->execute();
+        $db->execute();
         // Insert test data into 'rssfeed' table
-        $this->db->insert(
+        $db->insert(
             'rssfeed',
             ['pagekey'],
             ['title'],
             ['description'],
             ['language']
         );
-        $this->db->execute([self::PAGEKEY],[self::TITLE],[self::DESCRIPTION],[self::LANGUAGE]);
+        $db->execute([self::PAGEKEY],[self::TITLE],[self::DESCRIPTION],[self::LANGUAGE]);
         // Insert test data into 'itemstest' table
-        $this->db->insert(
+        $db->insert(
             'itemstest',
             ['pagekey'],
             ['content'],
             ['name'],
             ['timestamp']
         );
-        $this->db->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],['NOW()']);
+        $db->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],['NOW()']);
  
     }
     
