@@ -28,12 +28,13 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
         
         self::$feed = new RssFeed();
         self::$feed->setDI($di);
-        self::$feed->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
-        self::$feed->connect();
+        
+        $this->db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
+        $this->db->connect();
         // Create 'rssfeed' table
-        self::$feed->dropTableIfExists("rssfeed");
-        self::$feed->execute();
-        self::$feed->createTable(
+        $this->db->dropTableIfExists("rssfeed");
+        $this->db->execute();
+        $this->db->createTable(
             'rssfeed',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -48,11 +49,11 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'image_height'  => ['int(11)'],
             ]
         );
-        self::$mumin->execute();
+        $this->db->execute();
         // Create 'itemstest' table
-        self::$feed->dropTableIfExists("itemstest");
-        self::$feed->execute();
-        self::$feed->createTable(
+        $this->db->dropTableIfExists("itemstest");
+        $this->db->execute();
+        $this->db->createTable(
             'itemstest',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -62,25 +63,25 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'timestamp'  => ['datetime'],
             ]
         );
-        self::$mumin->execute();
+        $this->db->execute();
         // Insert test data into 'rssfeed' table
-        self::$mumin->insert(
+        $this->db->insert(
             'rssfeed',
             ['pagekey'],
             ['title'],
             ['description'],
             ['language']
         );
-        self::$mumin->execute([self::PAGEKEY],[self::TITLE],[self::DESCRIPTION],[self::LANGUAGE]);
+        $this->db->execute([self::PAGEKEY],[self::TITLE],[self::DESCRIPTION],[self::LANGUAGE]);
         // Insert test data into 'itemstest' table
-        self::$mumin->insert(
+        $this->db->insert(
             'itemstest',
             ['pagekey'],
             ['content'],
             ['name'],
             ['timestamp']
         );
-        self::$mumin->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],['NOW()']);
+        $this->db->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],['NOW()']);
  
     }
     
