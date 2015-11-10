@@ -83,7 +83,7 @@ class RssFeed extends \CRssFeed\MVC\CDatabaseModel
 	private function getItems($pagekey) {
 	    
 	    // The DB table from where you want to get the new RSS updates.
-		$itemstable = "comment";
+		$itemstable = "itemstest";
 		
 		$res = $this->getValues($itemstable, $pagekey);
 		    
