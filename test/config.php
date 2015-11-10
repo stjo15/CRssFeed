@@ -11,3 +11,10 @@ include __DIR__ . "/../vendor/autoload.php";
  */
 define('ANAX_INSTALL_PATH', realpath(__DIR__ . '/../vendor/anax/mvc') . '/');
 define('ANAX_APP_PATH',     ANAX_INSTALL_PATH . 'app/');
+
+$this->di->setShared('db', function() {
+            $db = new \CRssFeed\Database\CDatabaseBasic();
+            $db->setOptions(require ANAX_APP_PATH . 'config/config_mysql.php');
+            $db->connect();
+            return $db;
+        });
