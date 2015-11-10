@@ -25,6 +25,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         self::$feed = new RssFeed();
+        self::$feed->setDI($this->di);
         self::$feed->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
         self::$feed->connect();
         // Create 'rssfeed' table
