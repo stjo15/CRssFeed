@@ -10,7 +10,6 @@ include __DIR__ . "/../vendor/autoload.php";
  *
  */
 define('ANAX_PATH', realpath(__DIR__ . '/../vendor/anax/mvc') . '/');
-define('ANAX_APP_PATH',     ANAX_INSTALL_PATH . 'app/');
 
 require __DIR__.'/../webroot/config_with_app.php'; 
 
