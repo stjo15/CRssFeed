@@ -66,7 +66,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             ['pagekey'],
             ['title'],
             ['description'],
-            ['language'],
+            ['language']
         );
         self::$mumin->execute([self::PAGEKEY],[self::TITLE],[self::DESCRIPTION],[self::LANGUAGE]);
         // Insert test data into 'itemstest' table
@@ -75,7 +75,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             ['pagekey'],
             ['content'],
             ['name'],
-            ['timestamp'],
+            ['timestamp']
         );
         self::$mumin->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],['NOW()']);
  
