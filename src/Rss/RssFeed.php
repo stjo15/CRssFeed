@@ -140,7 +140,8 @@ class RssFeed extends \CRssFeed\MVC\CDatabaseModel
     */
     public function fromquery($table, $columns = '*')
     {
-       $this->db->select($columns)
+       $that = $this;
+       $that->db->select($columns)
              ->from($table);
  
        return $this;

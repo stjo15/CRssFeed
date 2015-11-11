@@ -20,8 +20,7 @@ $di->set('RssController', function() use ($di) {
 
 $di->setShared('db', function() {
             $db = new \CRssFeed\Database\CDatabaseBasic();
-            $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
-            //$db->setOptions(require ANAX_APP_PATH . 'config/config_mysql.php');
+            $db->setOptions(require ANAX_APP_PATH . 'config/config_mysql.php');
             $db->connect();
             return $db;
         });
