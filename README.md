@@ -2,7 +2,7 @@ Setting up and using the CRssFeed module with the Anax MVC framework
 --------------------------------------------------------------------
 
 [![Build Status](https://travis-ci.org/stjo15/CRssFeed.svg?branch=master)](https://travis-ci.org/stjo15/CRssFeed)
-
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stjo15/CRssFeed/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/stjo15/CRssFeed/?branch=master)
 
 1. Add dependency to "stjo15/c-rss-feed": "dev-master" to 'require' in your Anax-MVC composer.json file. 
 
@@ -28,8 +28,8 @@ You might need to make corrections to the path variables or make hard links in o
 10. Your RSS content database should contain columns for pagekey, id, title and description. 
 However, you can and should choose your own column names in the class RssFeed,
 in the method getItems(). The xml tags should stay as they are, just change the contents of these tags.
-For example, if you want to feed your new blog article, put $item['title'] as the content of tag <title>.
+For example, if you want to feed your new blog article, put $item['title'] as the content of tag 'title'.
 
-11. Important! In the RssFeed:getItems() method, set the variable $itemstable to the name of your content db table.
+Important! In the RssFeed:getItems() method, set the variable $itemstable to the name of your content db table.
 
-12. There are also functions to edit, delete and list RSS feeds. You should really check out the contents and customize it to your needs.
+There are also functions to edit, delete and list RSS feeds. You should really check out the contents and customize it to your needs.
