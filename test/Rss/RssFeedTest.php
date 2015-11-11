@@ -24,10 +24,13 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
+        $di  = new \Anax\DI\CDIFactoryDefault();   
+        
         self::$feed = new RssFeed();
         self::$feed->setDI($di);
         
         $db    = new \CRssFeed\Database\CDatabaseBasic();
+        $db->setDI($di);
         
         $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
         $db->connect();
