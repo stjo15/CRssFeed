@@ -1,7 +1,7 @@
 Setting up and using the CRssFeed module with the Anax MVC framework
 --------------------------------------------------------------------
 
-https://travis-ci.org/stjo15/CRssFeed.svg
+[![Build Status](https://travis-ci.org/stjo15/CRssFeed.svg?branch=master)](https://travis-ci.org/stjo15/CRssFeed)
 
 
 1. Add dependency to "stjo15/c-rss-feed": "dev-master" to 'require' in your Anax-MVC composer.json file. 
