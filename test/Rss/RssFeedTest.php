@@ -75,7 +75,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             ['description'],
             ['language']
         );
-        $db->execute(['pagekey', 'title', 'description', 'language']);
+        $db->execute('pagekey', 'title', 'description', 'language');
         //self::PAGEKEY, self::TITLE, self::DESCRIPTION, self::LANGUAGE
         // Insert test data into 'itemstest' table
         $db->insert(
@@ -85,7 +85,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             ['name'],
             ['timestamp']
         );
-        $db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
+        $db->execute('pagekey', 'content', 'staffan', 'NOW()');
         //self::PAGEKEY, self::CONTENT, self::NAME, self::NOW
  
     }
