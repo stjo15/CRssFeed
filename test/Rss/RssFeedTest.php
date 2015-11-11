@@ -30,7 +30,6 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
         self::$feed->setDI($di);
         
         $db    = new \CRssFeed\Database\CDatabaseBasic();
-        $db->setDI($di);
         
         $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
         $db->connect();
