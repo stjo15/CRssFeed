@@ -84,7 +84,8 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             ['name'],
             ['timestamp']
         );
-        $db->execute([self::PAGEKEY, self::CONTENT, self::NAME, self::NOW]);
+        $db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
+        //self::PAGEKEY, self::CONTENT, self::NAME, self::NOW
  
     }
     
