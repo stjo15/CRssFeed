@@ -37,9 +37,9 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
         });
         
         // Create 'rssfeed' table
-        $db->dropTableIfExists("rssfeed");
-        $db->execute();
-        $db->createTable(
+        $di->db->dropTableIfExists("rssfeed");
+        $di->db->execute();
+        $di->db->createTable(
             'rssfeed',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -54,11 +54,11 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'image_height'  => ['int(11)'],
             ]
         );
-        $db->execute();
+        $di->db->execute();
         // Create 'itemstest' table
-        $db->dropTableIfExists("itemstest");
-        $db->execute();
-        $db->createTable(
+        $di->db->dropTableIfExists("itemstest");
+        $di->db->execute();
+        $di->db->createTable(
             'itemstest',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -68,9 +68,9 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'timestamp'  => ['datetime'],
             ]
         );
-        $db->execute();
+        $di->db->execute();
         // Insert test data into 'rssfeed' table
-        $db->insert(
+        $di->db->insert(
             'rssfeed',
             [
             'pagekey',
@@ -79,10 +79,10 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             'language'
             ]
         );
-        $db->execute(['pagekey', 'title', 'description', 'language']);
+        $di->db->execute(['pagekey', 'title', 'description', 'language']);
         //self::PAGEKEY, self::TITLE, self::DESCRIPTION, self::LANGUAGE
         // Insert test data into 'itemstest' table
-        $db->insert(
+        $di->db->insert(
             'itemstest',
             [
             'pagekey',
@@ -91,7 +91,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             'timestamp'
             ]
         );
-        $db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
+        $di->db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
         //self::PAGEKEY, self::CONTENT, self::NAME, self::NOW
  
     }
