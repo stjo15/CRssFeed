@@ -3,8 +3,7 @@
 namespace CRssFeed\Rss;
  
 /**
- * A test for RssFeed.
- *
+ * @backupGlobals disabled
  */
 class RssFeedTest extends \PHPUnit_Framework_TestCase
 {
