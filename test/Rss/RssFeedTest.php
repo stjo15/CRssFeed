@@ -15,6 +15,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
     const NAME =  "Testadmin";
     const CONTENT =  "This is an example content of the RSS Feed";
     const LANGUAGE =  "sv-se";
+    const NOW = "NOW()";
     
     /**
      * setUpBeforeClass, called once for all tests in this class.
@@ -83,7 +84,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             ['name'],
             ['timestamp']
         );
-        $db->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],['NOW()']);
+        $db->execute([self::PAGEKEY],[self::CONTENT],[self::NAME],[self::NOW]);
  
     }
     
