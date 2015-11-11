@@ -24,19 +24,19 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {  
-        
+        $that = $this;
         self::$feed = new RssFeed();
-        self::$feed->setDI($this->di);
+        self::$feed->setDI($that->di);
         
         //$db    = new \CRssFeed\Database\CDatabaseBasic();
-        $this->db = self::$feed->setDI($this->di);
+        $that->db = self::$feed->setDI($that->di);
         
         //$db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
         //$db->connect();
         // Create 'rssfeed' table
-        $this->db->dropTableIfExists("rssfeed");
-        $this->db->execute();
-        $this->db->createTable(
+        $that->db->dropTableIfExists("rssfeed");
+        $that->db->execute();
+        $that->db->createTable(
             'rssfeed',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -51,11 +51,11 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'image_height'  => ['int(11)'],
             ]
         );
-        $this->db->execute();
+        $that->db->execute();
         // Create 'itemstest' table
-        $this->db->dropTableIfExists("itemstest");
-        $this->db->execute();
-        $this->db->createTable(
+        $that->db->dropTableIfExists("itemstest");
+        $that->db->execute();
+        $that->db->createTable(
             'itemstest',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -65,9 +65,9 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'timestamp'  => ['datetime'],
             ]
         );
-        $this->db->execute();
+        $that->db->execute();
         // Insert test data into 'rssfeed' table
-        $this->db->insert(
+        $that->db->insert(
             'rssfeed',
             [
             'pagekey',
@@ -76,10 +76,10 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             'language'
             ]
         );
-        $this->db->execute(['pagekey', 'title', 'description', 'language']);
+        $that->db->execute(['pagekey', 'title', 'description', 'language']);
         //self::PAGEKEY, self::TITLE, self::DESCRIPTION, self::LANGUAGE
         // Insert test data into 'itemstest' table
-        $this->db->insert(
+        $that->db->insert(
             'itemstest',
             [
             'pagekey',
@@ -88,7 +88,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             'timestamp'
             ]
         );
-        $this->db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
+        $that->db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
         //self::PAGEKEY, self::CONTENT, self::NAME, self::NOW
  
     }
