@@ -29,10 +29,13 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
         self::$feed = new RssFeed();
         self::$feed->setDI($di);
         
-        $db    = new \CRssFeed\Database\CDatabaseBasic();
+        $di->setShared('db', function() {
+            $db = new \CRssFeed\Database\CDatabaseBasic();
+            $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
+            $db->connect();
+            return $db;
+        });
         
-        $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
-        $db->connect();
         // Create 'rssfeed' table
         $db->dropTableIfExists("rssfeed");
         $db->execute();
