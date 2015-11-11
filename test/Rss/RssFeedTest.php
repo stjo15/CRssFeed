@@ -70,22 +70,26 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
         // Insert test data into 'rssfeed' table
         $db->insert(
             'rssfeed',
-            ['pagekey'],
-            ['title'],
-            ['description'],
-            ['language']
+            [
+            'pagekey',
+            'title',
+            'description',
+            'language'
+            ]
         );
-        $db->execute('pagekey', 'title', 'description', 'language');
+        $db->execute(['pagekey', 'title', 'description', 'language']);
         //self::PAGEKEY, self::TITLE, self::DESCRIPTION, self::LANGUAGE
         // Insert test data into 'itemstest' table
         $db->insert(
             'itemstest',
-            ['pagekey'],
-            ['content'],
-            ['name'],
-            ['timestamp']
+            [
+            'pagekey',
+            'content',
+            'name',
+            'timestamp'
+            ]
         );
-        $db->execute('pagekey', 'content', 'staffan', 'NOW()');
+        $db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
         //self::PAGEKEY, self::CONTENT, self::NAME, self::NOW
  
     }
