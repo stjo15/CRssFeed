@@ -23,20 +23,20 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
      *
      */
     public static function setUpBeforeClass()
-    {
-        $di  = new \Anax\DI\CDIFactoryDefault();   
+    {  
         
         self::$feed = new RssFeed();
-        self::$feed->setDI($di);
+        self::$feed->setDI($this->di);
         
-        $db    = new \CRssFeed\Database\CDatabaseBasic();
+        //$db    = new \CRssFeed\Database\CDatabaseBasic();
+        $this->db = self::$feed->setDI($this->di);
         
-        $db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
-        $db->connect();
+        //$db->setOptions(['dsn' => "sqlite:memory::", "verbose" => false]);
+        //$db->connect();
         // Create 'rssfeed' table
-        $db->dropTableIfExists("rssfeed");
-        $db->execute();
-        $db->createTable(
+        $this->db->dropTableIfExists("rssfeed");
+        $this->db->execute();
+        $this->db->createTable(
             'rssfeed',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -51,11 +51,11 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'image_height'  => ['int(11)'],
             ]
         );
-        $db->execute();
+        $this->db->execute();
         // Create 'itemstest' table
-        $db->dropTableIfExists("itemstest");
-        $db->execute();
-        $db->createTable(
+        $this->db->dropTableIfExists("itemstest");
+        $this->db->execute();
+        $this->db->createTable(
             'itemstest',
             [
                 'id'    => ['integer', 'auto_increment', 'primary key', 'not null'],
@@ -65,9 +65,9 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
                 'timestamp'  => ['datetime'],
             ]
         );
-        $db->execute();
+        $this->db->execute();
         // Insert test data into 'rssfeed' table
-        $db->insert(
+        $this->db->insert(
             'rssfeed',
             [
             'pagekey',
@@ -76,10 +76,10 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             'language'
             ]
         );
-        $db->execute(['pagekey', 'title', 'description', 'language']);
+        $this->db->execute(['pagekey', 'title', 'description', 'language']);
         //self::PAGEKEY, self::TITLE, self::DESCRIPTION, self::LANGUAGE
         // Insert test data into 'itemstest' table
-        $db->insert(
+        $this->db->insert(
             'itemstest',
             [
             'pagekey',
@@ -88,7 +88,7 @@ class RssFeedTest extends \PHPUnit_Framework_TestCase
             'timestamp'
             ]
         );
-        $db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
+        $this->db->execute(['pagekey', 'content', 'staffan', 'NOW()']);
         //self::PAGEKEY, self::CONTENT, self::NAME, self::NOW
  
     }
